@@ -8,13 +8,29 @@ from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
 
-# This program requires LEGO EV3 MicroPython v2.0 or higher.
-# Click "Open user guide" on the EV3 extension tab for more information.
-
-
-# Create your objects here.
 ev3 = EV3Brick()
 
 
-# Write your program here.
-ev3.speaker.beep()
+color_sensor = ColorSensor(Port.S3)
+
+
+
+while True:
+    #ev3.screen.print('no AMARILLO')
+    if color_sensor.color() == Color.YELLOW:
+        #ev3.speaker.beep()
+        ev3.screen.print('AMARILLO')
+    elif color_sensor.color()== Color.RED :
+        ev3.screen.print('ROJO')
+    elif color_sensor.color() == Color.GREEN:
+        ev3.screen.print('Verde')
+    elif color_sensor.color() == Color.BLACK:
+        ev3.screen.print('Negro')
+    elif color_sensor.color() == Color.BLUE:
+        ev3.screen.print('Azul')
+    elif color_sensor.color() == Color.WHITE:
+        ev3.screen.print('BLANCO')
+    elif color_sensor.color() == Color.BROWN:
+        ev3.screen.print('MARRON')
+    else:
+        ev3.screen.print('Ninguno')
